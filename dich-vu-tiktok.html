@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vận hành TikTok Shop | Meta Ecom Group</title>
+    <meta name="description" content="Dịch vụ vận hành TikTok Shop trọn gói: Tối ưu hóa chuyển đổi - Tối đa hóa doanh thu cùng Meta Ecom.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style_v2.css?v=3">
+    
+    <style>
+        .service-hero {
+            padding: 12rem 0 6rem;
+            background-color: #f4f7f6; /* Adjust this to match the image background */
+            color: var(--text-main);
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+
+        @keyframes floatImage {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .core-values {
+            padding: 6rem 0;
+            background: white;
+            position: relative;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .value-card {
+            background: transparent;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: none;
+            box-shadow: none;
+        }
+
+        .value-card .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(51, 58, 165, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .value-card .icon-wrapper svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card:hover .icon-wrapper {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .value-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            font-weight: 700;
+            font-family: var(--font-heading);
+        }
+
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .brand-section {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .brand-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .brand-tab-btn {
+            background: white;
+            border: 1px solid rgba(0, 9, 79, 0.1);
+            padding: 0.8rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .brand-tab-btn.active, .brand-tab-btn:hover {
+            background: var(--primary-dark);
+            color: white;
+            border-color: var(--primary-dark);
+            box-shadow: 0 10px 20px rgba(0, 9, 79, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .brand-logos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .brand-logo-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
+            height: 140px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .brand-logo-item img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .brand-logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+            border-color: var(--secondary);
+        }
+
+        .brand-logo-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Tooltip */
+        .brand-logo-item::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .brand-logo-item::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 0 6px 6px 6px;
+            border-style: solid;
+            border-color: transparent transparent var(--primary-dark) transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .brand-logo-item:hover::after,
+        .brand-logo-item:hover::before {
+            opacity: 1;
+            visibility: visible;
+            bottom: -35px;
+        }
+        .brand-logo-item:hover::before {
+            bottom: -5px;
+        }
+
+        /* CASE STUDIES SECTION */
+        .cs-section {
+            padding: 5rem;
+            background: #0b1a23; /* Dark premium navy */
+            color: white;
+            overflow: hidden;
+            margin: 4rem 2rem;
+            border-radius: 40px;
+        }
+
+        .cs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+        }
+
+        .cs-header-left h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .cs-nav-arrows {
+            display: flex;
+            gap: 12px;
+        }
+
+        .cs-arrow {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.3s ease;
+            background: transparent; color: white;
+        }
+        .cs-arrow:hover { background: white; color: #0b1a23; transform: scale(1.05); }
+
+        .cs-slider-container {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scrollbar-width: none;
+            scroll-snap-type: x mandatory;
+        }
+        .cs-slider-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cs-card {
+            min-width: 100%;
+            scroll-snap-align: center;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+            height: 520px;
+        }
+
+        .cs-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        .cs-img img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        .cs-content {
+            position: absolute;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            color: var(--text-main);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+
+        .cs-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            border: 1px solid rgba(0, 9, 79, 0.15);
+            padding: 0.4rem 1.2rem;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        .cs-metrics {
+            display: flex;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .cs-metric-box {
+            flex: 1;
+            border-right: 1px solid #f0f0f0;
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        .cs-metric-box:first-child { padding-left: 0; }
+        .cs-metric-box:last-child { border-right: none; padding-right: 0; }
+
+        .cs-metric-box h4 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.5px;
+        }
+
+        .cs-metric-box span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            line-height: 1.4;
+            display: block;
+        }
+
+        .cs-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        /* PRICING */
+        .pricing-section {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            position: relative;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .pricing-card.best-seller {
+            border: 2px solid var(--secondary);
+            transform: scale(1.05);
+            box-shadow: 0 30px 60px rgba(6, 230, 175, 0.15);
+            z-index: 2;
+            padding: 4rem 2.5rem;
+        }
+
+        .pricing-card.best-seller:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .best-seller-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--secondary), #00c689);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(6, 230, 175, 0.4);
+        }
+
+        .pricing-card h3 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            min-height: 250px;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f8f8f8;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 2rem;
+            line-height: 1.5;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+        
+        .pricing-features li.dimmed {
+            color: #ccc;
+        }
+        .pricing-features li.dimmed::before {
+            content: '-';
+            color: #ccc;
+        }
+
+        @media (max-width: 1024px) {
+            .pricing-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .pricing-card.best-seller { transform: none; }
+            .pricing-card.best-seller:hover { transform: translateY(-5px); }
+            .cs-section { margin: 2rem 1rem; padding: 3rem 1.5rem; border-radius: 24px; }
+            .cs-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .cs-card { min-width: 100%; height: auto; min-height: 600px; display: flex; flex-direction: column; }
+            .cs-img { height: 250px; position: relative; }
+            .cs-content { position: relative; right: 0; top: 0; transform: none; width: 100%; border-radius: 0 0 24px 24px; box-shadow: none; padding: 2rem; }
+            .brand-logos { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .value-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Meta Ecom Logo">
+            </a>
+            <nav class="nav-links">
+                <div class="nav-item-dropdown">
+                    <a href="index.html#services" style="display: flex; align-items: center; gap: 4px; color: var(--primary);">
+                        DỊCH VỤ
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="dich-vu-tiktok.html" style="color: var(--primary) !important; background-color: #f8fafc;">Vận hành TikTok Shop</a>
+                        <a href="dich-vu-shopee.html">Vận hành Shopee</a>
+                    </div>
+                </div>
+                <a href="projects.html">DỰ ÁN</a>
+                <a href="clients.html">KHÁCH HÀNG VÀ ĐỐI TÁC</a>
+                <a href="about.html">VỀ CHÚNG TÔI</a>
+                <a href="contact.html" class="btn btn-primary btn-nav">LIÊN HỆ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="service-hero">
+        <div class="container" style="position: relative; z-index: 2; display: flex; align-items: center; gap: 3rem;">
+            
+            <!-- LEFT CONTENT -->
+            <div style="flex: 1.2;">
+                <h1 style="font-size: 2.4rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.4; color: var(--primary-dark); letter-spacing: -0.5px;">
+                    Vận Hành TikTok Shop Trọn Gói<br>
+                    <span style="background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; margin-top: 0.2rem;">Tối Ưu Chuyển Đổi<br>Tối Đa Doanh Thu</span>
+                </h1>
+                
+                <p style="font-size: 1.15rem; margin-bottom: 3rem; color: var(--text-muted); line-height: 1.7; max-width: 90%;">
+                    Chấm dứt tình trạng "Kênh nhiều View nhưng Gian hàng không nổ đơn". Dựa trên hàng ngàn giờ thực chiến Mega Live, Meta Ecom cung cấp giải pháp bao trọn gói: Từ Kịch bản, Định vị, đến Booking KOC.
+                </p>
+
+                <a href="contact.html" class="btn btn-primary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(51, 58, 165, 0.2);">NHẬN TƯ VẤN TỪ CHUYÊN GIA</a>
+            </div>
+
+            <!-- RIGHT IMAGE -->
+            <div style="flex: 0.8; text-align: center; position: relative;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120%; height: 120%; background: radial-gradient(circle, rgba(6, 230, 175, 0.1) 0%, transparent 70%); z-index: -1; border-radius: 50%;"></div>
+                <img src="images/van-hanh-tiktok.png" alt="Vận hành TikTok Shop" style="width: 100%; max-width: 650px; object-fit: contain; animation: floatImage 6s ease-in-out infinite;">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="core-values">
+        <div class="container">
+            <div class="text-center">
+                <h2 style="color: var(--primary-dark); font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800;">4 GIÁ TRỊ CỐT LÕI TỪ META ECOM</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">Meta Ecom là đối tác chiến lược chuyên cung cấp dịch vụ vận hành TikTok Shop toàn diện (End-to-End). Chúng tôi giúp bạn giải quyết 4 bài toán lớn.</p>
+            </div>
+            
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3>Quản Trị Tài Chính & Tối Ưu Lợi Nhuận Ròng</h3>
+                    <p>Áp dụng mô hình quản trị P&L (Profit & Loss) thực chiến để kiểm soát chặt chẽ các chi phí ẩn. Đảm bảo mọi chiến dịch TikTok Ads đều đạt ROAS tối đa, mang lại lợi nhuận ròng thực tế.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                    </div>
+                    <h3>Hệ Sinh Thái Vận Hành In-House Trọn Gói</h3>
+                    <p>Chuyển giao toàn bộ gánh nặng Media. Chúng tôi cung cấp sẵn Hệ thống Studio cao cấp, thiết bị Live chuyên nghiệp và mẫu Live thực chiến để chủ doanh nghiệp rảnh tay tập trung sản phẩm.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    </div>
+                    <h3>Đột Phá Doanh Số Cùng Meta Ecom MCN</h3>
+                    <p>Tận dụng đặc quyền Top 3 MCN, thúc đẩy doanh số thần tốc qua mạng lưới KOC/KOL Affiliate độc quyền và các phiên Mega Livestream bùng nổ (Thiết lập kỷ lục 500.000 USD/đêm).</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
+                    <h3>Am Hiểu Sâu Sắc Thuật Toán TikTok Shop</h3>
+                    <p>Cập nhật chính sách liên tục và xử lý trực tiếp các lỗi vi phạm nền tảng, giúp gian hàng phát triển an toàn, tránh bóp tương tác. Báo cáo minh bạch về GMV và khai phá Insight khách hàng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES SLIDER -->
+    <section class="cs-section">
+        <div class="cs-header">
+            <div class="cs-header-left">
+                <h2>Cùng đồng hành - Cùng tăng trưởng -<br>Những câu chuyện thành công</h2>
+            </div>
+            <div class="cs-nav-arrows">
+                <div class="cs-arrow" onclick="document.querySelector('.cs-slider-container').scrollBy({left: -800, behavior: 'smooth'})">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </div>
+                <div class="cs-arrow" onclick="document.querySelector('.cs-slider-container').scrollBy({left: 800, behavior: 'smooth'})">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="cs-slider-container">
+            <!-- CS 1 -->
+            <div class="cs-card">
+                <div class="cs-img">
+                    <img src="images/MICHI BABY MEGALIVE.jpg" alt="Michi Baby Mega Live">
+                </div>
+                <div class="cs-content">
+                    <div class="cs-brand">MICHI BABY</div>
+                    <div class="cs-metrics">
+                        <div class="cs-metric-box">
+                            <h4>$500K+</h4>
+                            <span>Doanh thu kỷ lục / đêm</span>
+                        </div>
+                        <div class="cs-metric-box">
+                            <h4>12 Ngày</h4>
+                            <span>Triển khai chiến dịch</span>
+                        </div>
+                        <div class="cs-metric-box">
+                            <h4>Top 3</h4>
+                            <span>MCN ngành Mẹ & Bé</span>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Thiết lập kỷ lục doanh số trên nền tảng! Meta Ecom điều phối toàn diện chiến dịch Mega Live từ mạng lưới KOC Affiliate đến hệ thống Studio vận hành, khẳng định vị thế dẫn đầu trong ngách hàng Mẹ & Bé.</p>
+                    <a href="projects.html" class="btn-link" style="color: var(--secondary); font-weight: 600; font-size: 0.95rem; text-decoration: underline;">Chi tiết Case Study</a>
+                </div>
+            </div>
+
+            <!-- CS 2 -->
+            <div class="cs-card">
+                <div class="cs-img">
+                    <img src="images/FNOS STREETWEAR.jpg" alt="Fnos Streetwear">
+                </div>
+                <div class="cs-content">
+                    <div class="cs-brand">FNOS</div>
+                    <div class="cs-metrics">
+                        <div class="cs-metric-box">
+                            <h4>+4 Lần</h4>
+                            <span>Tăng trưởng sau 3 tháng</span>
+                        </div>
+                        <div class="cs-metric-box">
+                            <h4>High CR</h4>
+                            <span>Tỷ lệ chốt đơn nội sàn</span>
+                        </div>
+                        <div class="cs-metric-box">
+                            <h4>100+</h4>
+                            <span>KOC/KOL đồng loạt đẩy</span>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Mở rộng thị phần phân khúc thời trang nam cao cấp. Bứt phá doanh số thông qua mạng lưới KOC độc quyền và chiến lược sản xuất Video In-house chuẩn định vị thương hiệu.</p>
+                    <a href="projects.html" class="btn-link" style="color: var(--secondary); font-weight: 600; font-size: 0.95rem; text-decoration: underline;">Chi tiết Case Study</a>
+                </div>
+            </div>
+
+            <!-- CS 3 -->
+            <div class="cs-card">
+                <div class="cs-img">
+                    <img src="images/RYSH MAN.png" alt="Rhysman Cosmetics">
+                </div>
+                <div class="cs-content">
+                    <div class="cs-brand">RHYSMAN</div>
+                    <div class="cs-metrics">
+                        <div class="cs-metric-box">
+                            <h4>Top 1</h4>
+                            <span>Mỹ phẩm Nam</span>
+                        </div>
+                        <div class="cs-metric-box">
+                            <h4>50K+</h4>
+                            <span>Lượt bán / tháng</span>
+                        </div>
+                        <div class="cs-metric-box">
+                            <h4>+25%</h4>
+                            <span>Biên lợi nhuận ròng</span>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Phá vỡ rào cản cạnh tranh khốc liệt. Tái cấu trúc gian hàng chuẩn SEO và tối ưu hóa hệ thống quảng cáo TikTok Ads, mang lại nguồn lợi nhuận thực tế và bền vững.</p>
+                    <a href="projects.html" class="btn-link" style="color: var(--secondary); font-weight: 600; font-size: 0.95rem; text-decoration: underline;">Chi tiết Case Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND TABS -->
+    <section class="brand-section">
+        <div class="container text-center">
+            <h2 style="color: var(--primary-dark); font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800;">BẢO CHỨNG TỪ 200+ THƯƠNG HIỆU LỚN</h2>
+            <p style="max-width: 800px; margin: 0 auto 4rem; color: var(--text-muted); font-size: 1.15rem;">Đồng hành cùng các thương hiệu để thiết lập vị thế thống lĩnh trên nền tảng TikTok Shop.</p>
+            
+            <div class="brand-tabs">
+                <button class="brand-tab-btn active">Chăm Sóc Sức Khỏe & Làm Đẹp</button>
+                <button class="brand-tab-btn">Mẹ & Bé</button>
+                <button class="brand-tab-btn">Thời Trang & Phụ Kiện</button>
+            </div>
+            
+            <div class="brand-logos">
+                <div class="brand-logo-item" data-tooltip="Top mỹ phẩm thiên nhiên">
+                    <img src="images/clients/LOGO NATURA SIBERICA.jpg" alt="Natura Siberica" onerror="this.src='https://placehold.co/150x100/ffffff/333aa5?text=Natura'">
+                </div>
+                <div class="brand-logo-item" data-tooltip="Kỷ lục 500.000 USD/phiên Live">
+                    <img src="images/clients/LOGO MICHI BABY.jpg" alt="Michi Baby" onerror="this.src='https://placehold.co/150x100/ffffff/333aa5?text=Michi'">
+                </div>
+                <div class="brand-logo-item" data-tooltip="Giải Vàng TikTok Ad Awards">
+                    <img src="images/clients/LOGO THE BAD GOD.jpg" alt="The Bad God" onerror="this.src='https://placehold.co/150x100/ffffff/333aa5?text=Bad+God'">
+                </div>
+                <div class="brand-logo-item" data-tooltip="Top 1 Mỹ Phẩm Nam">
+                    <img src="images/clients/LOGO RHYSMAN.jpg" alt="Rhysman" onerror="this.src='https://placehold.co/150x100/ffffff/333aa5?text=Rhysman'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section">
+        <div class="container text-center">
+            <h2 style="color: var(--primary-dark); font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800;">BẢNG GIÁ DỊCH VỤ VẬN HÀNH</h2>
+            <p style="max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem;">Lựa chọn gói giải pháp phù hợp với quy mô và mục tiêu tăng trưởng của doanh nghiệp.</p>
+            
+            <div class="pricing-grid">
+                <!-- START -->
+                <div class="pricing-card">
+                    <h3>START</h3>
+                    <div class="price">Dành cho nhà bán mới</div>
+                    <ul class="pricing-features text-left">
+                        <li>Nghiên cứu thị trường, tái định hướng</li>
+                        <li>Thiết lập 01 tài khoản tiêu chuẩn</li>
+                        <li>Đặc quyền chính sách trợ giá MCN</li>
+                        <li>Cài đặt & Tối ưu quảng cáo nội sàn</li>
+                        <li class="dimmed">Hoạch định chiến lược P&L</li>
+                        <li class="dimmed">Hỗ trợ Studio Live PC In-house</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Nhận báo giá ngay</a>
+                </div>
+                
+                <!-- PRO -->
+                <div class="pricing-card best-seller">
+                    <div class="best-seller-badge">MOST POPULAR</div>
+                    <h3 style="color: var(--primary);">PRO</h3>
+                    <div class="price" style="color: var(--primary-dark);">Dành cho doanh nghiệp SMEs</div>
+                    <ul class="pricing-features text-left">
+                        <li><strong>Tất cả quyền lợi gói START</strong></li>
+                        <li>Hoạch định chiến lược & Phễu giá (P&L)</li>
+                        <li>Setup chiến dịch Mega Sale & Khuyến mãi</li>
+                        <li>Quản trị chuyển đổi & Tối ưu ROAS Ads</li>
+                        <li>Hỗ trợ nhanh vấn đề vi phạm chính sách</li>
+                        <li class="dimmed">Sản xuất Video In-house</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%; margin-top: 1rem; box-shadow: 0 10px 20px rgba(51, 58, 165, 0.2);">Nhận báo giá ngay</a>
+                </div>
+                
+                <!-- ENTERPRISE -->
+                <div class="pricing-card">
+                    <h3>ENTERPRISE</h3>
+                    <div class="price">Thống lĩnh thị phần ngành</div>
+                    <ul class="pricing-features text-left">
+                        <li><strong>Tất cả quyền lợi gói PRO</strong></li>
+                        <li>Hỗ trợ hệ thống Studio Live PC chuyên nghiệp</li>
+                        <li>Booking KOC/KOL Affiliate qua Mạng lưới</li>
+                        <li>Sản xuất Short Video / Livestream In-house</li>
+                        <li>Kết nối trực tiếp TikTok Việt Nam</li>
+                        <li>Tối ưu hóa phễu đa nền tảng</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Nhận báo giá ngay</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="final-cta-section">
+        <div class="container final-cta-container">
+            <div class="final-cta-left">
+                <h2>BẮT ĐẦU ĐỂ BỨT PHÁ NGAY!</h2>
+                <p>Gia nhập mạng lưới 500+ đối tác thành công và nhận bản Audit gian hàng miễn phí!</p>
+            </div>
+            <div class="final-cta-right">
+                <form action="#">
+                    <input type="email" placeholder="Email của bạn *" required>
+                    <button type="submit">GỬI</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col-1">
+                    <img src="images/logo.png" alt="Meta Ecom" class="footer-logo">
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span><strong>Email:</strong> info@metaecom.vn</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span><strong>Hotline:</strong> +84 929 996 699</span>
+                    </div>
+                    <div class="footer-contact-item" style="align-items: flex-start;">
+                        <svg style="margin-top: 3px; flex-shrink: 0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span><strong>Head Office (Hà Nội):</strong> Số 111 Cù Chính Lan, Phường Phương Liệt, Quận Thanh Xuân, TP. Hà Nội.</span>
+                    </div>
+                    <div class="footer-contact-item" style="align-items: flex-start;">
+                        <svg style="margin-top: 3px; flex-shrink: 0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <span><strong>Branch Office (TP.HCM):</strong> 31A Nơ Trang Long, Bình Thạnh, TP.HCM</span>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Giới Thiệu</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="clients.html">Khách hàng và đối tác</a></li>
+                        <li><a href="projects.html">Dự án</a></li>
+                        <li><a href="contact.html">Liên hệ với chúng tôi</a></li>
+                    </ul>
+                    <img src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=abc" alt="DMCA PROTECTED" class="dmca-badge">
+                </div>
+
+                <div class="footer-col">
+                    <h4>Dịch Vụ Cung Cấp</h4>
+                    <ul class="footer-links">
+                        <li><a href="dich-vu-tiktok.html">Dịch vụ vận hành TikTok Shop</a></li>
+                        <li><a href="dich-vu-shopee.html">Dịch vụ vận hành Shopee</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Kết Nối Với Meta Ecom</h4>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon" style="background-color: #3b5998; color: white;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" class="social-icon" style="background-color: #ff0000; color: white;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"></polygon></svg>
+                        </a>
+                        <a href="#" class="social-icon" style="background-color: #000000; color: white;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>Copyright 2023 &copy; Meta Ecom – Let Vietnamese Ecommerce Grow</div>
+                <div><a href="#">Chính sách bảo mật</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
