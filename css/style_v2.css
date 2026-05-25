@@ -1537,7 +1537,7 @@ h1, h2, h3, h4 {
     .nav-links { display: none; }
     .mobile-menu-btn { display: block; }
 
-    .hero-title { font-size: 2.2rem !important; }
+    .hero-title { font-size: clamp(1.4rem, 6.5vw, 2.2rem) !important; }
     .hero-slogan { font-size: 1.2rem; white-space: normal; }
     .hero-desc { font-size: 1rem; margin-bottom: 1.5rem; }
     .about-hero-content { padding: 2rem 1.5rem !important; margin-top: -40px !important; }
