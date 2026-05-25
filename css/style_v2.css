@@ -1537,7 +1537,22 @@ h1, h2, h3, h4 {
     .nav-links { display: none; }
     .mobile-menu-btn { display: block; }
 
-    .hero-title { font-size: 2.5rem; }
+    .hero-title { font-size: 2.2rem !important; }
+    .hero-slogan { font-size: 1.2rem; white-space: normal; }
+    .hero-desc { font-size: 1rem; margin-bottom: 1.5rem; }
+    .about-hero-content { padding: 2rem 1.5rem !important; margin-top: -40px !important; }
+    .vision-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .pillars-grid { grid-template-columns: 1fr !important; margin-top: 2rem; }
+    .logo-wall { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .contact-card { grid-template-columns: 1fr; border-radius: 12px; }
+    .contact-left { padding: 2rem 1.5rem; }
+    .contact-title { font-size: 1.6rem; }
+    .contact-right { padding: 2rem 1.5rem; }
+    .about-stats-image { height: 220px; }
+    .about-stats-box { padding: 2rem 1.5rem; width: 95%; margin-top: -30px; }
+    .stat-number { font-size: 2.5rem; }
+    .section-title { font-size: 2rem !important; }
+
     .about-grid, .footer-grid { grid-template-columns: 1fr; }
     .awards-grid { grid-template-columns: 1fr; }
     .project-slider { grid-template-columns: 1fr; }

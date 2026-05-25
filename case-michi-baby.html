@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Michi Baby - Kỷ lục 500.000 USD Mega Live | Meta Ecom</title>
+    <meta name="description" content="Khám phá hành trình Meta Ecom đưa Michi Baby cán mốc doanh thu nửa triệu Đô la chỉ sau một đêm Mega Livestream.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style_v2.css?v=4">
+    
+    <style>
+        .case-hero {
+            padding: 10rem 0 5rem;
+            background-color: var(--bg-light);
+            background-image: radial-gradient(at 100% 0%, rgba(6, 230, 175, 0.1) 0px, transparent 50%), 
+                              radial-gradient(at 0% 100%, rgba(51, 58, 165, 0.05) 0px, transparent 50%);
+        }
+        .case-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .case-client-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            flex-shrink: 0;
+            border: 1px solid #eee;
+        }
+        .case-client-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            border: 1px solid #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .stat-box:hover::after {
+            transform: scaleX(1);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .bg-pattern {
+            background-color: #f8fafc;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300094f' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .case-content-section {
+            padding: 5rem 0;
+        }
+        .content-block {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(0,0,0,0.03);
+            position: relative;
+        }
+        .content-block h2 {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 1rem;
+        }
+        .content-block h2 svg {
+            color: var(--secondary);
+            background: rgba(6, 230, 175, 0.1);
+            padding: 8px;
+            border-radius: 12px;
+            width: 45px;
+            height: 45px;
+        }
+        .content-block p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+        .content-block ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1.5rem;
+        }
+        .content-block li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin-bottom: 1.2rem;
+            padding-left: 2.8rem;
+            position: relative;
+        }
+        .content-block li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--primary-dark);
+            background-color: var(--secondary);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            box-shadow: 0 4px 10px rgba(6, 230, 175, 0.3);
+        }
+
+        /* DATA CHART STYLES */
+        .data-viz-container {
+            background: var(--primary-dark);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            color: white;
+            box-shadow: 0 20px 40px rgba(0, 9, 79, 0.15);
+        }
+        .data-viz-title {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: white;
+            font-weight: 700;
+        }
+        .bar-wrap {
+            margin-bottom: 1.5rem;
+        }
+        .bar-label {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .bar-track {
+            width: 100%;
+            height: 24px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            animation: slideRight 1.5s ease-out forwards;
+            transform-origin: left;
+        }
+        .bar-1 { background: rgba(255,255,255,0.3); color: white; width: 15%; }
+        .bar-2 { background: var(--secondary); color: var(--primary-dark); width: 100%; }
+
+        @keyframes slideRight {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+
+        /* IMAGE GRID STYLES */
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .image-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .image-card:hover img {
+            transform: scale(1.05);
+        }
+        .image-caption {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, rgba(0,9,79,0.9), transparent);
+            padding: 2rem 1.5rem 1rem;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: start;
+        }
+        
+        @media (max-width: 900px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .case-header { flex-direction: column; text-align: center; }
+            .case-stats { grid-template-columns: 1fr; gap: 1rem; }
+            .case-header h1 { font-size: 2.2rem !important; }
+            .case-hero { padding: 6rem 0 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Meta Ecom Logo">
+            </a>
+            <nav class="nav-links">
+                <div class="nav-item-dropdown">
+                    <a href="index.html#services" style="display: flex; align-items: center; gap: 4px;">
+                        DỊCH VỤ
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="dich-vu-tiktok.html">Vận hành TikTok Shop</a>
+                        <a href="dich-vu-shopee.html">Vận hành Shopee</a>
+                    </div>
+                </div>
+                <a href="projects.html" class="active" style="color: var(--primary);">DỰ ÁN</a>
+                <a href="clients.html">KHÁCH HÀNG VÀ ĐỐI TÁC</a>
+                <a href="about.html">VỀ CHÚNG TÔI</a>
+                <a href="contact.html" class="btn btn-primary btn-nav">LIÊN HỆ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CASE STUDY HERO -->
+    <section class="case-hero">
+        <div class="container">
+            <a href="projects.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-muted); margin-bottom: 2rem; font-weight: 500; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Quay lại danh sách dự án
+            </a>
+            
+            <div class="case-header">
+                <div class="case-client-logo">
+                    <img src="images/clients/LOGO MICHI BABY.jpg" alt="Michi Baby Logo">
+                </div>
+                <div>
+                    <div class="badge" style="display: inline-block; background: rgba(6, 230, 175, 0.15); color: var(--primary-dark); padding: 0.4rem 1.2rem; border-radius: 50px; font-weight: 700; font-size: 0.85rem; margin-bottom: 1rem; border: 1px solid rgba(6, 230, 175, 0.3);">CASE STUDY NGÀNH MẸ & BÉ</div>
+                    <h1 style="font-size: 3.2rem; color: var(--primary-dark); font-weight: 800; line-height: 1.2; margin: 0; letter-spacing: -1px;">Cán mốc nửa triệu Đô la chỉ trong một đêm Mega Live</h1>
+                </div>
+            </div>
+            
+            <p style="font-size: 1.2rem; color: var(--text-main); line-height: 1.7; max-width: 800px; margin-top: 1.5rem;">
+                Hành trình đưa Michi Baby vươn lên trở thành một trong những thương hiệu dẫn đầu trên nền tảng TikTok Shop, tận dụng tối đa sức mạnh của mạng lưới MCN và chiến lược Mega Livestream bùng nổ.
+            </p>
+            
+            <div class="case-stats">
+                <div class="stat-box">
+                    <div class="stat-number">237.6K</div>
+                    <div class="stat-label">Lượt xem Livestream</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">77.73%</div>
+                    <div class="stat-label">Tỷ lệ Click-through (CTR)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$500K+</div>
+                    <div class="stat-label">Doanh thu / phiên Live</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <section class="case-content-section bg-pattern">
+        <div class="container" style="max-width: 1000px;">
+            
+            <!-- Main Hero Image -->
+            <div style="margin-bottom: 4rem; width: 100%; height: 500px; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.15); border: 5px solid white;">
+                <img src="images/projects/cover_michi_baby.png" alt="Michi Baby Livestream" style="width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+
+            <!-- Content Grid 1: Text + Data Viz -->
+            <div class="split-layout">
+                <div class="content-block" style="margin-bottom: 0;">
+                    <h2>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        Bối cảnh & Thách thức
+                    </h2>
+                    <p>Thị trường ngành hàng Mẹ & Bé trên các nền tảng E-commerce luôn được đánh giá là "mảnh đất màu mỡ" nhưng cũng đi kèm với mức độ cạnh tranh vô cùng khốc liệt. Trước khi hợp tác cùng Meta Ecom, Michi Baby đối mặt với bài toán lớn:</p>
+                    <ul>
+                        <li>Chi phí quảng cáo (CPA) ngày càng đắt đỏ trong khi biên lợi nhuận bị thu hẹp.</li>
+                        <li>Sự phụ thuộc quá nhiều vào các phiên live nhỏ lẻ, thiếu tính bùng nổ để tạo ra độ phủ thương hiệu diện rộng.</li>
+                        <li>Chưa khai thác được mạng lưới KOC/KOL khổng lồ trên nền tảng TikTok để chuyển hóa thành doanh thu thực tế.</li>
+                    </ul>
+                </div>
+
+                <div class="data-viz-container">
+                    <div class="data-viz-title">Biểu đồ Tăng Trưởng (Traffic)</div>
+                    
+                    <div class="bar-wrap">
+                        <div class="bar-label"><span>Phiên Live thường (Trước đây)</span> <span>12K</span></div>
+                        <div class="bar-track"><div class="bar-fill bar-1"></div></div>
+                    </div>
+                    
+                    <div class="bar-wrap" style="margin-bottom: 0;">
+                        <div class="bar-label"><span style="color: var(--secondary); font-weight: 700;">Mega Live (Meta Ecom)</span> <span style="color: var(--secondary); font-weight: 700;">237.6K</span></div>
+                        <div class="bar-track"><div class="bar-fill bar-2">x20 Lần</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Block 2: Full Width Solution -->
+            <div class="content-block">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Chiến lược & Giải pháp Đột Phá
+                </h2>
+                <p>Thay vì chạy theo các chiến dịch giảm giá thông thường, Meta Ecom đã xây dựng một chiến lược "Mega Livestream" kết hợp sức mạnh hệ sinh thái MCN độc quyền:</p>
+                <ul>
+                    <li><strong>Quy tụ dàn KOC/KOL "khủng":</strong> Kích hoạt đồng loạt hơn 50 KOC hàng đầu trong mảng gia đình & em bé để tạo hiệu ứng FOMO (Fear of Missing Out) lan truyền trước thềm phiên Mega Live.</li>
+                    <li><strong>Cấu trúc Phễu Sản Phẩm mồi nhử:</strong> Tối ưu hóa danh mục sản phẩm trong phiên live với các deal "1K", deal độc quyền mua 1 tặng 1 để đẩy Traffic tự nhiên lên mức tối đa.</li>
+                    <li><strong>Kịch bản Livestream kịch tính:</strong> Thiết kế Timeline chốt sale theo nhịp độ tâm lý người xem, kết hợp tung Voucher chớp nhoáng (Flash Voucher) để kích thích hành vi mua sắm bốc đồng.</li>
+                    <li><strong>Buff Ads Real-time:</strong> Đội ngũ Ads can thiệp bơm tiền theo thời gian thực (Real-time) vào những khoảnh khắc lượng người xem đạt đỉnh.</li>
+                </ul>
+
+                <!-- Dynamic Image Grid -->
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="images/projects/michi_solution.png" alt="Hậu trường Livestream">
+                        <div class="image-caption">Vận hành hệ thống Studio quy mô lớn</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="images/projects/michi_result.png" alt="Biểu đồ bứt phá">
+                        <div class="image-caption">Doanh thu bùng nổ Real-time</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-block" style="border-left: 6px solid var(--secondary); padding-left: 3rem;">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Kết quả bùng nổ
+                </h2>
+                <p>Chiến dịch đã tạo ra một "cơn địa chấn" trong ngành Mẹ & Bé trên TikTok Shop. Chỉ trong vỏn vẹn một đêm diễn ra Mega Livestream, mọi chỉ số đều vượt xa kỳ vọng ban đầu:</p>
+                <ul>
+                    <li>Thu hút tổng cộng <strong>237.600 lượt xem</strong> toàn phiên.</li>
+                    <li>Tỷ lệ nhấp chuột (CTR) đạt mốc kỷ lục <strong>77.73%</strong>.</li>
+                    <li>Doanh thu chốt phiên cán mốc <strong>Hơn 500.000 USD</strong> (Tương đương hơn 12 tỷ VNĐ).</li>
+                </ul>
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(6, 230, 175, 0.1); border-radius: 16px; display: inline-block;">
+                    <p style="margin: 0; font-style: italic; color: var(--primary-dark); font-weight: 500;">
+                        *Đây không chỉ là thành công về mặt doanh số, mà còn giúp Michi Baby củng cố vị thế Top Brand ngành hàng Mẹ & Bé, tạo đà tăng trưởng bền vững.*
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Call to action inside content -->
+            <div style="background: linear-gradient(135deg, var(--primary-dark), #1a365d); border-radius: 24px; padding: 4rem; text-align: center; color: white; margin-top: 5rem; box-shadow: 0 20px 40px rgba(0, 9, 79, 0.2);">
+                <h3 style="font-size: 2.2rem; margin-bottom: 1rem; color: white; font-weight: 800;">Sẵn sàng tạo kỷ lục tiếp theo cho thương hiệu?</h3>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Hãy để đội ngũ chuyên gia của Meta Ecom thiết kế riêng chiến lược Mega Live bùng nổ dành cho bạn.</p>
+                <a href="contact.html" class="btn" style="background: var(--secondary); color: var(--primary-dark); padding: 1.2rem 3rem; font-weight: 800; border-radius: 50px; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(6, 230, 175, 0.3); text-transform: uppercase;">NHẬN BẢN KẾ HOẠCH MIỄN PHÍ</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 2rem;">
+                <div>Copyright 2023 &copy; Meta Ecom – Let Vietnamese Ecommerce Grow</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
