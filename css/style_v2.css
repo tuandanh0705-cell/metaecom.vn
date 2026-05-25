@@ -1533,6 +1533,10 @@ h1, h2, h3, h4 {
     }
 }
 
+/* Hide mobile elements on desktop by default */
+.menu-close-btn { display: none; }
+.mobile-menu-btn { display: none; } /* Ensure hamburger is hidden too if not already */
+
 @media (max-width: 768px) {
     .nav-links {
         display: flex !important;
