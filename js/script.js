@@ -33,27 +33,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Mobile Menu Toggle (Basic setup)
+    // 3. Mobile Menu Toggle (Sidebar setup)
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     
-    if (mobileBtn) {
-        mobileBtn.addEventListener('click', () => {
-            // Note: In a full app, you would toggle a class to show/hide the menu
-            // and add specific CSS for the mobile state.
-            if(navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'white';
-                navLinks.style.padding = '1rem';
-                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-            }
+    if (mobileBtn && navLinks) {
+        // Add overlay element dynamically
+        const overlay = document.createElement('div');
+        overlay.className = 'menu-overlay';
+        document.body.appendChild(overlay);
+
+        // Create close button dynamically inside navLinks
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'menu-close-btn';
+        closeBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+        navLinks.prepend(closeBtn);
+
+        const toggleMenu = () => {
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        };
+
+        mobileBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Xử lý submenu trên mobile
+        const dropdowns = document.querySelectorAll('.nav-item-dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if(window.innerWidth <= 768) {
+                    // Prevent link redirect if it's just meant to open dropdown on mobile
+                    if(e.target.tagName !== 'A' || e.target.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                    this.classList.toggle('active');
+                }
+            });
         });
     }
 
